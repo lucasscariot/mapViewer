@@ -5,56 +5,46 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lscariot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/01/12 07:22:46 by lscariot          #+#    #+#              #
-#    Updated: 2016/03/03 17:34:59 by lscariot         ###   ########.fr        #
+#    Created: 2016/01/22 09:44:59 by lscariot          #+#    #+#              #
+#    Updated: 2016/05/31 14:08:06 by lscariot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_PATH = ./
+NAME	= 42sh
 
-SRC_NAME = main.c \
-		   ft_hooks.c \
-		   ft_error.c \
-		   ft_parse.c \
-		   ft_draw.c
+CC		= clang
 
-OBJ_PATH = ./obj/
+S_DIR	=
 
-INC_PATH = ./includes
+O_DIR	=
 
-NAME = fdf
+I_DIR	=
 
-CC = gcc
+FLAGS	= -O3 -g -Wall -Wextra -Werror $(I_DIR) $(LIBS_DIR)
 
-CFLAGS = -Wall -Werror -Wextra
+FILES	= main.c \
 
-LFLAGS = -Llib/ -lmlx -framework OpenGL -framework Appkit
+LIBS_F	= ./libft/libft.a
 
-OBJ_NAME = $(SRC_NAME:.c=.o)
+SRC		= $(addprefix $(S_DIR),$(FILES))
 
-SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
-INC = $(addprefix -I,$(INC_PATH))
+OBJS	= $(addprefix $(O_DIR),$(FILES:.c=.o))
 
-all : $(NAME)
+LIBS	= $(addprefix -L. -l,$(LIBS_F))
 
-$(NAME) :
-	mkdir lib/
-	make -C minilibx
-	make -C libft
-	$(CC) $(LFLAGS) $(INC) -o $(NAME) $(SRC_NAME) libft.a
+RM		= rm -f
+
+all: 		$(NAME)
+
+$(NAME):
+	@make -C src
 
 clean:
-		make -C libft clean
-		make -C minilibx clean
-	    rm -fv $(OBJ)
-	
-fclean: clean
-	rm -fv $(NAME)
-	rm -rf lib/
-	make -C libft fclean
-	make -C minilibx fclean
+	@make -C src clean
 
-re: fclean all
+fclean: 	clean
+	@make -C src fclean
 
-.PHONY : all clean fclean re
+re:			fclean all
+
+.PHONY: re clean fclean all
