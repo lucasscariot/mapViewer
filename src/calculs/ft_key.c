@@ -6,7 +6,7 @@
 /*   By: lscariot <lscariot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 09:44:59 by lscariot          #+#    #+#             */
-/*   Updated: 2016/06/02 12:50:46 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/06/05 21:43:00 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	ft_right_left(t_gen *gen, int i)
 
 int		ft_key_hook(int keycode, t_gen *gen)
 {
-	(void)gen;
 	if (keycode == 53 || keycode == 12)
 		exit(0);
 	else if (keycode == 69 || keycode == 24)
@@ -64,6 +63,10 @@ int		ft_key_hook(int keycode, t_gen *gen)
 		ft_rotate_y(gen);
 	else if (keycode == 14)
 		ft_rotate_z(gen);
+	else if (keycode == 1)
+		ft_rotate_xx(gen);
+	else if (keycode == 0)
+		ft_rotate_yy(gen);
 	else
 	{
 		ft_putstr("Key | Keycode: ");

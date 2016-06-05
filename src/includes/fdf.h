@@ -6,7 +6,7 @@
 /*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 08:42:55 by lucas             #+#    #+#             */
-/*   Updated: 2016/06/02 12:57:07 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/06/05 21:43:09 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include <stdio.h>
 # include <math.h>
 # include <sys/stat.h>
-# define WIN_X 800
-# define WIN_Y 800
+# define WIN_X 1000
+# define WIN_Y 1000
 # define MOVE 5
-# define THETA 0.3
+# define THETA 0.1
 
 typedef struct	s_mat
 {
@@ -67,7 +67,7 @@ typedef struct	s_gen
 	int			x;
 	int			y;
 	int			z;
-	int			zoom;
+	double		zoom;
 	t_img 		*img;
 	t_mat		mat;
 	char		*filename;
@@ -96,7 +96,9 @@ int				ft_key_hook(int keycode, t_gen *gen);
 void			ft_divise(t_gen *gen);
 void			ft_multiply(t_gen *gen);
 void			ft_rotate_x(t_gen *gen);
+void			ft_rotate_xx(t_gen *gen);
 void			ft_rotate_y(t_gen *gen);
+void			ft_rotate_yy(t_gen *gen);
 void			ft_rotate_z(t_gen *gen);
 
 /* Matrices */

@@ -6,7 +6,7 @@
 /*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 15:57:50 by lucas             #+#    #+#             */
-/*   Updated: 2016/06/02 12:55:02 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/06/05 21:42:24 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,18 @@ void	ft_app_matrice(t_gen *gen)
 	}
 }
 
+void 	ft_rotate_xx(t_gen *gen)
+{
+	ft_init_mat(gen);
+	gen->mat.a = 1;
+	gen->mat.e = cos(-THETA);
+	gen->mat.f = -sin(-THETA);
+	gen->mat.h = sin(-THETA);
+	gen->mat.i = cos(-THETA);
+	ft_app_matrice(gen);
+	ft_show_map(gen);
+}
+
 void 	ft_rotate_x(t_gen *gen)
 {
 	ft_init_mat(gen);
@@ -61,6 +73,18 @@ void	ft_rotate_y(t_gen *gen)
 	gen->mat.e = 1;
 	gen->mat.g = -sin(THETA);
 	gen->mat.i = cos(THETA);
+	ft_app_matrice(gen);
+	ft_show_map(gen);
+}
+
+void	ft_rotate_yy(t_gen *gen)
+{
+	ft_init_mat(gen);
+	gen->mat.a = cos(-THETA);
+	gen->mat.c = sin(-THETA);
+	gen->mat.e = 1;
+	gen->mat.g = -sin(-THETA);
+	gen->mat.i = cos(-THETA);
 	ft_app_matrice(gen);
 	ft_show_map(gen);
 }

@@ -6,7 +6,7 @@
 /*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 08:42:32 by lucas             #+#    #+#             */
-/*   Updated: 2016/06/01 15:30:33 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/06/05 21:32:56 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void    ft_put_pixel(t_gen *gen, int x, int y, int z, int z2)
 {
     int     pos;
 
-    if (x >= WIN_X || y >= WIN_Y || x < 0 || y < 0)
+    if (x >= WIN_X || y >= WIN_Y || x < 0 || y < 0 || z <= -50)
         return ;
     pos = x * 4 + y * gen->img->size_line;
     if (z <= 0 || z2 <= 0)
@@ -28,11 +28,6 @@ void    ft_put_pixel(t_gen *gen, int x, int y, int z, int z2)
     }
     else
     {
-		/*
-        gen->img->data[pos] = 198;
-        gen->img->data[pos + 1] = 160;
-        gen->img->data[pos + 2] = 150;
-		*/
 		gen->img->data[pos] = 40;
         gen->img->data[pos + 1] = 240;
         gen->img->data[pos + 2] = 40;
@@ -50,17 +45,15 @@ void	ft_swap_point(t_point **p1, t_point **p2)
 
 void 	ft_init_point(t_gen *gen, t_point *p)
 {
-	(void)gen;
 	p->x = (p->x - gen->origin->x) * gen->zoom + WIN_X / 2;
 	p->y = (p->y - gen->origin->y) * gen->zoom + WIN_Y / 2;
-
 }
 
 void    ft_draw_line(t_gen *gen, t_point *p1, t_point *p2)
 {
     int     dx;
     int     dy;
-    int     save[4];
+    double     save[4];
 
 	save[0] = p1->x;
     save[1] = p1->y;

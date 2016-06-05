@@ -6,7 +6,7 @@
 /*   By: lscariot <lscariot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/21 12:56:46 by lscariot          #+#    #+#             */
-/*   Updated: 2016/06/01 16:01:02 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/06/05 21:28:33 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,16 @@ void	ft_draw_map(t_gen *gen)
 		{
 			if ((x + 1) < gen->x)
 				ft_draw_line(gen, gen->map[y][x], gen->map[y][x + 1]);
-			if (y  + 1 < gen->y)
+			if (y + 1 < gen->y)
+				ft_draw_line(gen, gen->map[y][x], gen->map[y + 1][x]);
+			if (y + 1 < gen->y && x + 1 < gen->x)
 				ft_draw_line(gen, gen->map[y][x], gen->map[y + 1][x]);
 			x++;
 		}
 		y++;
 	}
 	mlx_put_image_to_window(gen->mlx, gen->win, gen->img->img, 0, 0);
+	mlx_destroy_image(gen->mlx, gen->img->img);
 }
 
 void	ft_show_map(t_gen *gen)
