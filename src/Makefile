@@ -6,7 +6,7 @@
 #    By: lscariot <lscariot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/22 09:44:59 by lscariot          #+#    #+#              #
-#    Updated: 2016/06/01 14:31:48 by lscariot         ###   ########.fr        #
+#    Updated: 2016/06/06 01:24:31 by lscariot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ FILES	=	main.c								win/ft_win_create.c			\
 			show/ft_draw_line.c					show/ft_show_map.c			\
 			show/ft_bresenham.c					calculs/ft_key.c			\
 			calculs/ft_matrix.c					matrice/ft_rotate.c			\
-			matrice/ft_init_mat.c
+			matrice/ft_init_mat.c				show/ft_color.c
 
 LIBS_F	= ./libft/libft.a -lncurses ./minilibx/libmlx.a
 

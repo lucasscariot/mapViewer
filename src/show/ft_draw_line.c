@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_draw_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lucas    <lucas   @student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 08:42:32 by lucas             #+#    #+#             */
-/*   Updated: 2016/06/05 21:32:56 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/06/06 01:23:36 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,15 @@
 void    ft_put_pixel(t_gen *gen, int x, int y, int z, int z2)
 {
     int     pos;
+	int		col[3];
 
-    if (x >= WIN_X || y >= WIN_Y || x < 0 || y < 0 || z <= -50)
+    if (x >= WIN_X || y >= WIN_Y || x < 0 || y < 0)
         return ;
+	ft_choose_color(&col[0], &col[1], &col[2], z, z2);
     pos = x * 4 + y * gen->img->size_line;
-    if (z <= 0 || z2 <= 0)
-    {
-        gen->img->data[pos] = 255;
-        gen->img->data[pos + 1] = 0;
-        gen->img->data[pos + 2] = 0;
-
-    }
-    else
-    {
-		gen->img->data[pos] = 40;
-        gen->img->data[pos + 1] = 240;
-        gen->img->data[pos + 2] = 40;
-    }
+	gen->img->data[pos] = col[0];
+	gen->img->data[pos + 1] = col[1];
+	gen->img->data[pos + 2] = col[2];
 }
 
 void	ft_swap_point(t_point **p1, t_point **p2)

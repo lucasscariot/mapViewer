@@ -6,7 +6,7 @@
 /*   By: lscariot <lscariot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 09:44:59 by lscariot          #+#    #+#             */
-/*   Updated: 2016/06/05 21:43:00 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/06/06 02:20:13 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		ft_key_hook(int keycode, t_gen *gen)
 	else if (keycode == 1)
 		ft_rotate_xx(gen);
 	else if (keycode == 0)
-		ft_rotate_yy(gen);
+		ft_proj_ortho(gen);
 	else
 	{
 		ft_putstr("Key | Keycode: ");

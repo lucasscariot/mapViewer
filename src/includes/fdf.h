@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lucas    <lucas   @student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 08:42:55 by lucas             #+#    #+#             */
-/*   Updated: 2016/06/05 21:43:09 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/06/06 01:23:58 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 # include <stdio.h>
 # include <math.h>
 # include <sys/stat.h>
-# define WIN_X 1000
-# define WIN_Y 1000
+# define WIN_X 800
+# define WIN_Y 800
 # define MOVE 5
-# define THETA 0.1
+# define THETA 0.09
+//# define THETA 3.14159265359 / 2
 
 typedef struct	s_mat
 {
@@ -100,6 +101,7 @@ void			ft_rotate_xx(t_gen *gen);
 void			ft_rotate_y(t_gen *gen);
 void			ft_rotate_yy(t_gen *gen);
 void			ft_rotate_z(t_gen *gen);
+void			ft_proj_ortho(t_gen *gen);
 
 /* Matrices */
 void			ft_init_mat(t_gen *gen);
@@ -113,6 +115,7 @@ void 			ft_init_point(t_gen *gen, t_point *p);
 /* Draw Line */
 void			ft_put_pixel(t_gen *gen, int x, int y, int z, int z2);
 void    		ft_draw_line(t_gen *gen, t_point *p1, t_point *p2);
+void			ft_choose_color(int *r, int *v, int *b, int z, int z2);
 void			octan_1(t_gen *gen, t_point *p1, t_point *p2);
 void			octan_2(t_gen *gen, t_point *p1, t_point *p2);
 void			octan_3(t_gen *gen, t_point *p1, t_point *p2);

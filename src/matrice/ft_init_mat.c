@@ -6,7 +6,7 @@
 /*   By: lscariot <lscariot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 08:42:55 by lscariot          #+#    #+#             */
-/*   Updated: 2016/06/02 12:50:45 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/06/06 01:07:08 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,11 @@ void	ft_init_mat(t_gen *gen)
 	gen->mat.g = 0;
 	gen->mat.h = 0;
 	gen->mat.i = 0;
+	gen->mat.j = 0;
+	gen->mat.k = 0;
+	gen->mat.l = 0;
+	gen->mat.m = 0;
+	gen->mat.n = 0;
+	gen->mat.o = 0;
+	gen->mat.p = 0;
 }
